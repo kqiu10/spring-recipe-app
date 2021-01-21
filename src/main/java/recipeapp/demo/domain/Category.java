@@ -1,27 +1,22 @@
 package recipeapp.demo.domain;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import java.util.Set;
 
 /**
  * Date: 1/21/21
  * Question Description
  */
 @Entity
-public class Ingredient {
+public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private BigDecimal amount;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private UnitOfMeasure uom;
-
-    @ManyToOne
-    private Recipe recipe;
-
-
+    @ManyToMany(mappedBy = "categories")
+    private Set<Recipe> recipes;
 
     public Long getId() {
         return id;
@@ -39,19 +34,11 @@ public class Ingredient {
         this.description = description;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
+    public Set<Recipe> getRecipes() {
+        return recipes;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
     }
 }

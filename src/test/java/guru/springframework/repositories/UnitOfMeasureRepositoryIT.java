@@ -12,9 +12,13 @@ import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Created by jt on 6/17/17.
+ */
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UnitOfMeasureRepositoryTestIT {
+public class UnitOfMeasureRepositoryIT {
+
     @Autowired
     UnitOfMeasureRepository unitOfMeasureRepository;
 
@@ -37,4 +41,5 @@ public class UnitOfMeasureRepositoryTestIT {
 
         assertEquals("Cup", uomOptional.get().getDescription());
     }
+
 }

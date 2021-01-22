@@ -109,8 +109,6 @@
 		</repository>
 	</repositories>
 
-
-
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-snapshots</id>

@@ -146,6 +146,8 @@ public class IngredientControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/recipe/2/ingredients"));
 
+        when(ingredientService.deleteById(anyString(), anyString())).thenReturn(Mono.empty());
+
         verify(ingredientService, times(1)).deleteById(anyString(), anyString());
 
     }
